@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "XnK72KUHtCwfEHueIB1ul1MDs4UvLmQgE2UMjRnFtoE=",
+  "Source": "ChatAppAPI",
+  "BasePath": "_content/ChatAppAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ChatAppAPI\\wwwroot",
+      "Source": "ChatAppAPI",
+      "ContentRoot": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\wwwroot\\",
+      "BasePath": "_content/ChatAppAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\wwwroot\\Images\\20240627122612653_channels4_profile.jpg",
+      "SourceId": "ChatAppAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\wwwroot\\",
+      "BasePath": "_content/ChatAppAPI",
+      "RelativePath": "Images/20240627122612653_channels4_profile.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\20240627122612653_channels4_profile.jpg"
+    }
+  ]
+}

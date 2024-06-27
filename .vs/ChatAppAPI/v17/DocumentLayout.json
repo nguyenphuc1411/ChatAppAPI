@@ -1,12 +1,252 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\HocTap\\ChatApp\\ChatAppAPI\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|d:\\hoctap\\chatapp\\chatappapi\\chatappapi\\models\\messagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|solutionrelative:chatappapi\\models\\messagevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|d:\\hoctap\\chatapp\\chatappapi\\chatappapi\\services\\repositories\\messagerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|solutionrelative:chatappapi\\services\\repositories\\messagerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|d:\\hoctap\\chatapp\\chatappapi\\chatappapi\\controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|solutionrelative:chatappapi\\controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|d:\\hoctap\\chatapp\\chatappapi\\chatappapi\\controllers\\roomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|solutionrelative:chatappapi\\controllers\\roomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|d:\\hoctap\\chatapp\\chatappapi\\chatappapi\\services\\repositories\\roomrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|solutionrelative:chatappapi\\services\\repositories\\roomrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|d:\\hoctap\\chatapp\\chatappapi\\chatappapi\\services\\interfaces\\imessagerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|solutionrelative:chatappapi\\services\\interfaces\\imessagerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|d:\\hoctap\\chatapp\\chatappapi\\chatappapi\\services\\interfaces\\iroomrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|solutionrelative:chatappapi\\services\\interfaces\\iroomrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|d:\\hoctap\\chatapp\\chatappapi\\chatappapi\\models\\roomvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|solutionrelative:chatappapi\\models\\roomvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|d:\\hoctap\\chatapp\\chatappapi\\chatappapi\\mappings\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|solutionrelative:chatappapi\\mappings\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|d:\\hoctap\\chatapp\\chatappapi\\chatappapi\\data\\entities\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|solutionrelative:chatappapi\\data\\entities\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|d:\\hoctap\\chatapp\\chatappapi\\chatappapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|solutionrelative:chatappapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|d:\\hoctap\\chatapp\\chatappapi\\chatappapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|solutionrelative:chatappapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|d:\\hoctap\\chatapp\\chatappapi\\chatappapi\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|solutionrelative:chatappapi\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|d:\\hoctap\\chatapp\\chatappapi\\chatappapi\\data\\entities\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC15896C-7A09-48D5-A738-D1C30EB7F94D}|ChatAppAPI\\ChatAppAPI.csproj|solutionrelative:chatappapi\\data\\entities\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MessageVM.cs",
+              "DocumentMoniker": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Models\\MessageVM.cs",
+              "RelativeDocumentMoniker": "ChatAppAPI\\Models\\MessageVM.cs",
+              "ToolTip": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Models\\MessageVM.cs",
+              "RelativeToolTip": "ChatAppAPI\\Models\\MessageVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T12:08:02.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RoomREPO.cs",
+              "DocumentMoniker": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Services\\Repositories\\RoomREPO.cs",
+              "RelativeDocumentMoniker": "ChatAppAPI\\Services\\Repositories\\RoomREPO.cs",
+              "ToolTip": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Services\\Repositories\\RoomREPO.cs",
+              "RelativeToolTip": "ChatAppAPI\\Services\\Repositories\\RoomREPO.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAjwDUAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T08:43:47.72Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IRoomREPO.cs",
+              "DocumentMoniker": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Services\\Interfaces\\IRoomREPO.cs",
+              "RelativeDocumentMoniker": "ChatAppAPI\\Services\\Interfaces\\IRoomREPO.cs",
+              "ToolTip": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Services\\Interfaces\\IRoomREPO.cs",
+              "RelativeToolTip": "ChatAppAPI\\Services\\Interfaces\\IRoomREPO.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAcwAcAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T08:43:40.024Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MessagesController.cs",
+              "DocumentMoniker": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Controllers\\MessagesController.cs",
+              "RelativeDocumentMoniker": "ChatAppAPI\\Controllers\\MessagesController.cs",
+              "ToolTip": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Controllers\\MessagesController.cs",
+              "RelativeToolTip": "ChatAppAPI\\Controllers\\MessagesController.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAhwBoAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T08:36:22.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Room.cs",
+              "DocumentMoniker": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Data\\Entities\\Room.cs",
+              "RelativeDocumentMoniker": "ChatAppAPI\\Data\\Entities\\Room.cs",
+              "ToolTip": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Data\\Entities\\Room.cs",
+              "RelativeToolTip": "ChatAppAPI\\Data\\Entities\\Room.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAxwBAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T09:16:24.002Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IMessageREPO.cs",
+              "DocumentMoniker": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Services\\Interfaces\\IMessageREPO.cs",
+              "RelativeDocumentMoniker": "ChatAppAPI\\Services\\Interfaces\\IMessageREPO.cs",
+              "ToolTip": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Services\\Interfaces\\IMessageREPO.cs",
+              "RelativeToolTip": "ChatAppAPI\\Services\\Interfaces\\IMessageREPO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T08:29:10.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MessageREPO.cs",
+              "DocumentMoniker": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Services\\Repositories\\MessageREPO.cs",
+              "RelativeDocumentMoniker": "ChatAppAPI\\Services\\Repositories\\MessageREPO.cs",
+              "ToolTip": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Services\\Repositories\\MessageREPO.cs",
+              "RelativeToolTip": "ChatAppAPI\\Services\\Repositories\\MessageREPO.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAQwBgAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T08:29:29.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RoomsController.cs",
+              "DocumentMoniker": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Controllers\\RoomsController.cs",
+              "RelativeDocumentMoniker": "ChatAppAPI\\Controllers\\RoomsController.cs",
+              "ToolTip": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Controllers\\RoomsController.cs",
+              "RelativeToolTip": "ChatAppAPI\\Controllers\\RoomsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T09:15:26.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RoomVM.cs",
+              "DocumentMoniker": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Models\\RoomVM.cs",
+              "RelativeDocumentMoniker": "ChatAppAPI\\Models\\RoomVM.cs",
+              "ToolTip": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Models\\RoomVM.cs",
+              "RelativeToolTip": "ChatAppAPI\\Models\\RoomVM.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T09:15:57.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Mappings\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "ChatAppAPI\\Mappings\\MappingProfile.cs",
+              "ToolTip": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Mappings\\MappingProfile.cs",
+              "RelativeToolTip": "ChatAppAPI\\Mappings\\MappingProfile.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAIA1wBEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T08:40:22.686Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "ChatAppAPI\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "ChatAppAPI\\Controllers\\AuthController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T09:40:10.825Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Message.cs",
+              "DocumentMoniker": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Data\\Entities\\Message.cs",
+              "RelativeDocumentMoniker": "ChatAppAPI\\Data\\Entities\\Message.cs",
+              "ToolTip": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Data\\Entities\\Message.cs",
+              "RelativeToolTip": "ChatAppAPI\\Data\\Entities\\Message.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAA1wBAAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T08:45:08.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ChatHub.cs",
+              "DocumentMoniker": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Hubs\\ChatHub.cs",
+              "RelativeDocumentMoniker": "ChatAppAPI\\Hubs\\ChatHub.cs",
+              "ToolTip": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Hubs\\ChatHub.cs",
+              "RelativeToolTip": "ChatAppAPI\\Hubs\\ChatHub.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T08:55:01.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Program.cs",
+              "RelativeDocumentMoniker": "ChatAppAPI\\Program.cs",
+              "ToolTip": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\Program.cs",
+              "RelativeToolTip": "ChatAppAPI\\Program.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAArwB8AAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-27T08:40:14.6Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
