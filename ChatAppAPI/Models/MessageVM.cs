@@ -8,9 +8,10 @@ namespace ChatAppAPI.Models
         [Required]
         public string Content { get; set; }
 
-        public DateTime TimeStamp { get; set; }
-        public string From {  get; set; }
-        public string Avatar { get; set; }
-        public string Room { get; set; }
+        public DateTime TimeStamp { get; set; } = DateTime.Now;
+        public string? FullName { get; set; }
+        public string? Email {  get; set; }
+        public string? Avatar { get; set; }
+        public int RoomId { get; set; }
     }
 }

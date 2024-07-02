@@ -110,10 +110,6 @@ namespace ChatAppAPI.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RecipientId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int?>("RoomId")
                         .HasColumnType("int");
 
@@ -125,8 +121,6 @@ namespace ChatAppAPI.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("RecipientId");
 
                     b.HasIndex("RoomId");
 
@@ -300,24 +294,15 @@ namespace ChatAppAPI.Data.Migrations
 
             modelBuilder.Entity("ChatAppAPI.Data.Entities.Message", b =>
                 {
-                    b.HasOne("ChatAppAPI.Data.Entities.ManageUser", "Recipient")
-                        .WithMany("MessagesReceived")
-                        .HasForeignKey("RecipientId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("ChatAppAPI.Data.Entities.Room", "Room")
                         .WithMany("Messages")
-                        .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("RoomId");
 
                     b.HasOne("ChatAppAPI.Data.Entities.ManageUser", "Sender")
                         .WithMany("MessagesSent")
                         .HasForeignKey("SenderId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Recipient");
 
                     b.Navigation("Room");
 
@@ -329,7 +314,7 @@ namespace ChatAppAPI.Data.Migrations
                     b.HasOne("ChatAppAPI.Data.Entities.ManageUser", "Admin")
                         .WithMany("Rooms")
                         .HasForeignKey("AdminId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Admin");
@@ -388,8 +373,6 @@ namespace ChatAppAPI.Data.Migrations
 
             modelBuilder.Entity("ChatAppAPI.Data.Entities.ManageUser", b =>
                 {
-                    b.Navigation("MessagesReceived");
-
                     b.Navigation("MessagesSent");
 
                     b.Navigation("Rooms");

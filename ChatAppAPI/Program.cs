@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
@@ -16,7 +17,6 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllers();
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyDB"));
@@ -26,31 +26,59 @@ builder.Services.AddIdentity<ManageUser,IdentityRole>()
 builder.Services.AddScoped<IAccountREPO, AccountREPO>();
 builder.Services.AddScoped<IMessageREPO, MessageREPO>();
 builder.Services.AddScoped<IRoomREPO, RoomREPO>();
-
-builder.Services.AddSignalR();
 // Auto mapper
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]);
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(options =>
+})
+.AddJwtBearer(options =>
 {
-    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+    options.TokenValidationParameters = new TokenValidationParameters
     {
-        ValidateIssuer = false,
-        ValidateAudience = false,
+        ValidateIssuer = true,
+        ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(key)
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]))
+    };
+    options.Events = new JwtBearerEvents
+    {
+        OnMessageReceived = context =>
+        {
+            var accessToken = context.Request.Query["access_token"];
+
+            // If the request is for the chat hub and contains an access token
+            var path = context.HttpContext.Request.Path;
+            if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/chathub"))
+            {
+                context.Token = accessToken;
+            }
+
+            return Task.CompletedTask;
+        }
     };
 });
+builder.Services.AddCors(option =>
+{
+    option.AddPolicy("AllowAllOrigins",
+         builder =>
+         {
+             builder.SetIsOriginAllowed(origin => true) 
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials();
+         });
+});
+builder.Services.AddSignalR();
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -59,6 +87,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseStaticFiles();
+app.UseCors("AllowAllOrigins");
 app.UseHttpsRedirection();
 
 app.UseAuthentication();

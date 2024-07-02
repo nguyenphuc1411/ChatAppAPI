@@ -1,4 +1,5 @@
-﻿using ChatAppAPI.Models;
+﻿using ChatAppAPI.Data.Entities;
+using ChatAppAPI.Models;
 
 namespace ChatAppAPI.Services.Interfaces
 {
@@ -7,5 +8,6 @@ namespace ChatAppAPI.Services.Interfaces
         Task<bool> Login(LoginVM login);
         Task<bool> Register(RegisterVM register);
         Task<bool> Logout();
+        Task<ManageUser> GetCurrenUser();
     }
 }

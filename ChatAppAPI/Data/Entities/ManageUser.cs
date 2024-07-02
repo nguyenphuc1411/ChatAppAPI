@@ -13,9 +13,6 @@ namespace ChatAppAPI.Data.Entities
         public DateTime CreatedDate { get; set; }
 
         public ICollection<Message> MessagesSent { get; set; }
-
-        public ICollection<Message> MessagesReceived { get; set; }
-
         public ICollection<Room> Rooms { get; set; }
     }
 }

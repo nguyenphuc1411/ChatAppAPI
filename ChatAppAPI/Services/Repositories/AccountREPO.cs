@@ -3,6 +3,9 @@ using ChatAppAPI.Models;
 using ChatAppAPI.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore;
+using System.Net.WebSockets;
+using System.Security.Claims;
 
 namespace ChatAppAPI.Services.Repositories
 {
@@ -10,11 +13,19 @@ namespace ChatAppAPI.Services.Repositories
     {
         private readonly UserManager<ManageUser> userManager;
         private readonly SignInManager<ManageUser> signInManager;
-
-        public AccountREPO(UserManager<ManageUser> userManager, SignInManager<ManageUser> signInManager)
+        private readonly IHttpContextAccessor _httpContext;
+        public AccountREPO(UserManager<ManageUser> userManager, SignInManager<ManageUser> signInManager, IHttpContextAccessor httpContext)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            _httpContext = httpContext;
+        }
+
+        public async Task<ManageUser> GetCurrenUser()
+        {
+            var email = _httpContext.HttpContext.User.FindFirst(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
+            var user = await userManager.FindByEmailAsync(email);
+            return user;
         }
 
         public async Task<bool> Login(LoginVM login)

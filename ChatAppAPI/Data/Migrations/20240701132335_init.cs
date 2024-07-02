@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ChatAppAPI.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class chatapp : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -177,7 +177,7 @@ namespace ChatAppAPI.Data.Migrations
                         column: x => x.AdminId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -189,30 +189,22 @@ namespace ChatAppAPI.Data.Migrations
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TimeStamp = table.Column<DateTime>(type: "datetime2", nullable: false),
                     SenderId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    RecipientId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     RoomId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Messages", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Messages_AspNetUsers_RecipientId",
-                        column: x => x.RecipientId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_Messages_AspNetUsers_SenderId",
                         column: x => x.SenderId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Messages_Rooms_RoomId",
                         column: x => x.RoomId,
                         principalTable: "Rooms",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -253,11 +245,6 @@ namespace ChatAppAPI.Data.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Messages_RecipientId",
-                table: "Messages",
-                column: "RecipientId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Messages_RoomId",

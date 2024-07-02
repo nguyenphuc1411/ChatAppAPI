@@ -1,6 +1,9 @@
-﻿using ChatAppAPI.Models;
+﻿using ChatAppAPI.Data.Entities;
+using ChatAppAPI.Models;
 using ChatAppAPI.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.JsonWebTokens;
@@ -8,7 +11,6 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-
 namespace ChatAppAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -17,10 +19,12 @@ namespace ChatAppAPI.Controllers
     {
         private readonly IConfiguration _config;
         private readonly IAccountREPO _repos;
-        public AuthController(IConfiguration config, IAccountREPO repos)
+        private readonly UserManager<ManageUser> _userManager;
+        public AuthController(IConfiguration config, IAccountREPO repos, UserManager<ManageUser> userManager)
         {
             _config = config;
             _repos = repos;
+            _userManager = userManager;
         }
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginVM login)
@@ -44,7 +48,7 @@ namespace ChatAppAPI.Controllers
                 bool result = await _repos.Register(register);
                 if (result)
                 {
-                    return Ok(new { suceess = true , message = "Registed user successfully"}) ;
+                    return Ok(new { suceess = true, message = "Registed user successfully" });
                 }
                 return Unauthorized();
             }
@@ -53,31 +57,59 @@ namespace ChatAppAPI.Controllers
         [HttpPost("logout")]
         public async Task<IActionResult> Logout()
         {
-           await _repos.Logout();
+            await _repos.Logout();
             return Ok();
         }
         private string GenerateToken(LoginVM login)
         {
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+            var jwtSettings = _config.GetSection("Jwt");
+            var key = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSettings["Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var claims = new[]
             {
-                new Claim(ClaimTypes.Name, login.Email),
-                new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Sub,login.Email),
-                new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Iss,_config["Jwt:Issuer"]),
-                new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Aud,_config["Jwt:Audience"]),
-                new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
-                new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Iat,DateTime.UtcNow.ToString())
+            new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Sub, login.Email),
+            new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Iss, jwtSettings["Issuer"]),
+            new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Aud, jwtSettings["Audience"]),
+            new Claim(ClaimTypes.NameIdentifier,login.Email)
             };
+
             var token = new JwtSecurityToken(
-                issuer: _config["Jwt:Issuer"],
-                audience: _config["Jwt:Audience"],
+                issuer: jwtSettings["Issuer"],
+                audience: jwtSettings["Audience"],
                 claims: claims,
-                expires: DateTime.Now.AddDays(30),
+                expires: DateTime.UtcNow.AddDays(30),
                 signingCredentials: creds);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+        [Authorize]
+        [HttpGet("userinfo")]
+        public async Task<IActionResult> GetUserInfo()
+        {
+            var email = User.FindFirst(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            if (email == null)
+            {
+                return Unauthorized();
+            }
+
+            var user = await _userManager.FindByEmailAsync(email);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var userInfo = new
+            {
+                user.FullName,
+                user.Email,
+                user.CreatedDate
+            };
+
+            return Ok(userInfo);
         }
     }
 }

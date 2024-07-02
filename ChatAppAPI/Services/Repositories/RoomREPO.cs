@@ -4,6 +4,7 @@ using ChatAppAPI.Data.Entities;
 using ChatAppAPI.Models;
 using ChatAppAPI.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace ChatAppAPI.Services.Repositories
 {
@@ -11,18 +12,24 @@ namespace ChatAppAPI.Services.Repositories
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
-        public RoomREPO(AppDbContext context, IMapper mapper)
+        private readonly IHttpContextAccessor _httpContext;
+        public RoomREPO(AppDbContext context, IMapper mapper, IHttpContextAccessor httpContext)
         {
             _context = context;
             _mapper = mapper;
+            _httpContext = httpContext;
         }
 
         public async Task<bool> CreateAsync(RoomVM roomVM)
         {
+            var email = _httpContext.HttpContext.User.FindFirst(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
+            var admin = await _context.Users.FirstOrDefaultAsync(x=>x.Email == email);
+            if (admin == null) { return false; }
+            string adminId = admin.Id;
             var room = new Room
             {
-                RoomName = roomVM.RoomName,
-                AdminId = roomVM.AdminId,
+                RoomName =roomVM.RoomName,
+                AdminId = adminId,
                 CreatedDate = DateTime.Now
             };
             _context.Rooms.Add(room);
@@ -53,6 +60,21 @@ namespace ChatAppAPI.Services.Repositories
         {
             var room = await _context.Rooms.FindAsync(roomId);
             var roomVM = _mapper.Map<RoomVM>(room);
+            return roomVM;
+        }
+
+        public async Task<List<RoomVM>> Search(string? search)
+        {
+            var room = new List<Room>();
+            if (search != null)
+            {
+                room = await _context.Rooms.Include(x=>x.Admin).Where(x => x.RoomName.ToLower().Contains(search.ToLower())).ToListAsync();
+            }
+            else
+            {
+                room = await _context.Rooms.Include(x=>x.Admin).ToListAsync();
+            }
+            var roomVM = _mapper.Map<List<RoomVM>>(room);
             return roomVM;
         }
 

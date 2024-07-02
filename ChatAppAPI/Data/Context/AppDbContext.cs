@@ -19,27 +19,18 @@ namespace ChatAppAPI.Data.Context
             {
                 entity.HasOne(m => m.Sender)
                       .WithMany(u => u.MessagesSent)
-                      .HasForeignKey(m => m.SenderId)
-                      .OnDelete(DeleteBehavior.Restrict); // or DeleteBehavior.Cascade if you want cascade delete
+                      .HasForeignKey(m => m.SenderId);
 
-                entity.HasOne(m => m.Recipient)
-                      .WithMany(u => u.MessagesReceived)
-                      .HasForeignKey(m => m.RecipientId)
-                      .OnDelete(DeleteBehavior.Restrict); // or DeleteBehavior.Cascade if you want cascade delete
-
-                // Assuming RoomId can be nullable in Message entity
                 entity.HasOne(m => m.Room)
                       .WithMany(r => r.Messages)
-                      .HasForeignKey(m => m.RoomId)
-                      .OnDelete(DeleteBehavior.Restrict); // or DeleteBehavior.Cascade if you want cascade delete
+                      .HasForeignKey(m => m.RoomId);
             });
 
             builder.Entity<Room>(entity =>
             {
                 entity.HasOne(r => r.Admin)
                       .WithMany(u => u.Rooms)
-                      .HasForeignKey(r => r.AdminId)
-                      .OnDelete(DeleteBehavior.Restrict); // or DeleteBehavior.Cascade if you want cascade delete
+                      .HasForeignKey(r => r.AdminId);
 
                 entity.HasIndex(r => r.RoomName).IsUnique();
 

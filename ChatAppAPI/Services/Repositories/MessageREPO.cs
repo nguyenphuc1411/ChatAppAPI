@@ -30,7 +30,7 @@ namespace ChatAppAPI.Services.Repositories
                 _context.Messages.Where(x => x.RoomId == roomId)
                 .Include(x => x.Room).Include(x => x.Sender)
                 .OrderByDescending(x => x.TimeStamp)
-                .Take(20).ToListAsync();
+                .Take(10).ToListAsync();
 
             var messeagesVM = _mapper.Map<List<MessageVM>>(messages);
 

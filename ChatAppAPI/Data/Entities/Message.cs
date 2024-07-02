@@ -9,16 +9,10 @@ namespace ChatAppAPI.Data.Entities
 
         public string Content { get; set; }
 
-        public DateTime TimeStamp { get; set; }
+        public DateTime TimeStamp { get; set; } = DateTime.Now;
         public string SenderId { get; set; }
         public ManageUser Sender { get; set; }
-
-
-        public string RecipientId { get; set; }
-        public ManageUser Recipient { get; set; }
-
-
-        public int? RoomId { get; set; }
+        public int RoomId { get; set; }
         public Room Room { get; set; }
     }
 }
