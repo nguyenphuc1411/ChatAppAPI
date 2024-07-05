@@ -19,5 +19,6 @@ namespace ChatAppAPI.Models
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public string AdminId {  get; set; }
         public string? AdminName {  get; set; }
+        public string? Avatar {  get; set; }
     }
 }

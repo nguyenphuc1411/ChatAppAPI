@@ -19,12 +19,14 @@ namespace ChatAppAPI.Controllers
     {
         private readonly IConfiguration _config;
         private readonly IAccountREPO _repos;
+        private readonly IEmailREPO _reposEmail;
         private readonly UserManager<ManageUser> _userManager;
-        public AuthController(IConfiguration config, IAccountREPO repos, UserManager<ManageUser> userManager)
+        public AuthController(IConfiguration config, IAccountREPO repos, UserManager<ManageUser> userManager, IEmailREPO reposEmail)
         {
             _config = config;
             _repos = repos;
             _userManager = userManager;
+            _reposEmail = reposEmail;
         }
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginVM login)
@@ -106,10 +108,31 @@ namespace ChatAppAPI.Controllers
             {
                 user.FullName,
                 user.Email,
-                user.CreatedDate
+                user.CreatedDate,
+                user.Avatar
             };
 
             return Ok(userInfo);
+        }   
+        
+        [HttpPost("forgotpassword")]
+        public async Task<IActionResult> SendMailForgotpassword(EmailRequest request)
+        {
+            bool result = await _reposEmail.SendEmailAsync(request);
+            return result ? Ok(request) : BadRequest();
+        }
+        [HttpPost("changepassword")]
+        public async Task<IActionResult> ConfirmChangePassword(ChangePassword newPass)
+        {
+            bool result = await _repos.ConfirmChangePassword(newPass);
+            return result ? Ok("Change password successfully") : BadRequest();
+        }
+        [Authorize]
+        [HttpPost("updateprofile")]
+        public async Task<IActionResult> UpdateProfile([FromForm]string fullName,[FromForm]IFormFile? file)
+        {
+            bool result = await _repos.UpdateProfile(fullName, file);
+            return result ? Ok("Change profile successfully") : BadRequest();
         }
     }
 }

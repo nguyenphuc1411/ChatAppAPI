@@ -17,6 +17,7 @@ namespace ChatAppAPI.Mappings
                 .ReverseMap();
             CreateMap<Room, RoomVM>()
                 .ForMember(x=>x.AdminName,x=>x.MapFrom(x=>x.Admin.FullName))
+                 .ForMember(x => x.Avatar, x => x.MapFrom(x => x.Admin.Avatar))
                .ReverseMap();
 
             CreateMap<ManageUser, UserVM>()

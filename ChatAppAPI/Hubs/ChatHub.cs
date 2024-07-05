@@ -4,6 +4,7 @@ using ChatAppAPI.Data.Entities;
 using ChatAppAPI.Models;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks.Dataflow;
 
@@ -14,7 +15,7 @@ namespace ChatAppAPI.Hubs
         public readonly static List<UserVM> _connection = new List<UserVM>();
 
         private readonly static Dictionary<string, string> _connectionMap = new Dictionary<string, string>();
-        private readonly static Dictionary<string, UserVM> _groupsMap = new Dictionary<string, UserVM>();
+        private readonly static Dictionary<string, List<UserVM>> _groupsMap = new Dictionary<string, List<UserVM>>();
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
         public ChatHub(AppDbContext context, IMapper mapper)
@@ -46,6 +47,22 @@ namespace ChatAppAPI.Hubs
                 {
                     _connection.Remove(user);
                 }
+
+                foreach (var kvp in _groupsMap)
+                {
+                    var groupKey = kvp.Key;
+                    var groupUsers = kvp.Value;
+                    var userDis = groupUsers.FirstOrDefault(x => x.Email == user.Email);
+                    if (userDis!=null)
+                    {
+                        groupUsers.Remove(userDis);
+                        var values = _groupsMap
+                                .Where(x => x.Key == kvp.Key)
+                                .Select(x => x.Value);
+                        Clients.Group(groupKey).SendAsync("CurrentUsers", values);
+                        break;
+                    }
+                }
             }
             return base.OnDisconnectedAsync(exception);
         }
@@ -56,18 +73,42 @@ namespace ChatAppAPI.Hubs
                 var user = _connection.FirstOrDefault(x => x.Email == GetEmail);
                 if (user != null)
                 {
+                 
                     if (user.CurrentGroup == null)
                     {
-                        _groupsMap.Add(groupName,GetUser());
+                        if (!_groupsMap.ContainsKey(groupName))
+                        {
+                            _groupsMap[groupName] = new List<UserVM>();
+                        }
+                        _groupsMap[groupName].Add(user);
+
                         await Groups.AddToGroupAsync(Context.ConnectionId, groupName);
                     }
                     else
                     {
-                        _groupsMap.Remove(groupName);
-                        _groupsMap.Add(groupName,GetUser());
+                        // nếu có groups rồi
+                        if (_groupsMap.ContainsKey(user.CurrentGroup))
+                        {
+                            // remover user khoi group
+                            _groupsMap[user.CurrentGroup].Remove(user);
+                            if (_groupsMap[user.CurrentGroup].Count == 0)
+                            {
+                                _groupsMap.Remove(user.CurrentGroup);
+                            }
+                        }
+                        if (!_groupsMap.ContainsKey(groupName))
+                        {
+                            _groupsMap[groupName] = new List<UserVM>();
+                        }
+                        _groupsMap[groupName].Add(user);
+
+
                         await Groups.RemoveFromGroupAsync(Context.ConnectionId, user.CurrentGroup);
                         await Groups.AddToGroupAsync(Context.ConnectionId, groupName);
                     }
+
+                    
+                   
 
                     user.CurrentGroup = groupName;
 
@@ -77,6 +118,7 @@ namespace ChatAppAPI.Hubs
                             .Select(item =>
                                 new MessageVM
                                 {
+                                    Id = item.Id,
                                     Content = item.Content,
                                     FullName = item.Sender.FullName,
                                     Avatar = item.Sender.Avatar,
@@ -86,8 +128,13 @@ namespace ChatAppAPI.Hubs
                                 }
                             )
                             .OrderByDescending(x => x.TimeStamp)
-                            .Take(6).OrderBy(x=>x.TimeStamp).ToListAsync();
-                    await Clients.Group(groupName).SendAsync("CurrentUsers",_groupsMap.Where(x=>x.Key== groupName));
+                            .Take(20).OrderBy(x => x.TimeStamp).ToListAsync();
+
+                    var values = _groupsMap
+                                .Where(x => x.Key == groupName)
+                                .Select(x => x.Value);
+
+                    await Clients.Group(groupName).SendAsync("CurrentUsers", values);
                     await Clients.Group(groupName).SendAsync("GetMessages", listMessage);
                 }
             }
@@ -119,13 +166,37 @@ namespace ChatAppAPI.Hubs
                 if (result > 0)
                 {
                     var room = await _context.Rooms.FindAsync(roomId);
-                    var newMessageSend = _mapper.Map<MessageVM>(newMessage);        
-                    await Clients.Group(room.RoomName).SendAsync("NewMessage",newMessageSend);
+                    var newMessageSend = _mapper.Map<MessageVM>(newMessage);
+                    await Clients.Group(room.RoomName).SendAsync("NewMessage", newMessageSend);
                 }
             }
             else
             {
                 await Clients.Caller.SendAsync("SendMessageFailed", content, roomId.ToString());
+            }
+
+        }
+        public async Task DeleteMessage(int roomId, int messageId)
+        {
+            var user = _context.Users.FirstOrDefault(x => x.Email == GetEmail);
+            if (user != null)
+            {
+                var message = await _context.Messages.FirstOrDefaultAsync(x => x.Id == messageId && x.RoomId == roomId);
+                if (message != null)
+                {
+                    _context.Messages.Remove(message);
+                    var result = await _context.SaveChangesAsync();
+                    if (result > 0)
+                    {
+                        var room = await _context.Rooms.FindAsync(roomId);
+                        await Clients.Group(room.RoomName).SendAsync("DeleteMessageSuccess", _mapper.Map<MessageVM>(message));
+                    }
+                }
+
+            }
+            else
+            {
+                await Clients.Caller.SendAsync("DeleteMessageFailed", messageId);
             }
 
         }

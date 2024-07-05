@@ -5,6 +5,7 @@ namespace ChatAppAPI.Models
 {
     public class MessageVM
     {
+        public int Id { get; set; }
         [Required]
         public string Content { get; set; }
 

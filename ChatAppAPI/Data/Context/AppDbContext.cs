@@ -19,18 +19,21 @@ namespace ChatAppAPI.Data.Context
             {
                 entity.HasOne(m => m.Sender)
                       .WithMany(u => u.MessagesSent)
-                      .HasForeignKey(m => m.SenderId);
+                      .HasForeignKey(m => m.SenderId)
+                      .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasOne(m => m.Room)
                       .WithMany(r => r.Messages)
-                      .HasForeignKey(m => m.RoomId);
+                      .HasForeignKey(m => m.RoomId)
+                      .OnDelete(DeleteBehavior.NoAction);
             });
 
             builder.Entity<Room>(entity =>
             {
                 entity.HasOne(r => r.Admin)
                       .WithMany(u => u.Rooms)
-                      .HasForeignKey(r => r.AdminId);
+                      .HasForeignKey(r => r.AdminId)
+                      .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasIndex(r => r.RoomName).IsUnique();
 
@@ -46,7 +49,6 @@ namespace ChatAppAPI.Data.Context
                       .IsRequired();
             });
         }
-
 
     }
 }

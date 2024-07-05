@@ -78,6 +78,9 @@ namespace ChatAppAPI.Data.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("TokenForgetPassword")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
@@ -110,7 +113,7 @@ namespace ChatAppAPI.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("RoomId")
+                    b.Property<int>("RoomId")
                         .HasColumnType("int");
 
                     b.Property<string>("SenderId")
@@ -296,12 +299,14 @@ namespace ChatAppAPI.Data.Migrations
                 {
                     b.HasOne("ChatAppAPI.Data.Entities.Room", "Room")
                         .WithMany("Messages")
-                        .HasForeignKey("RoomId");
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("ChatAppAPI.Data.Entities.ManageUser", "Sender")
                         .WithMany("MessagesSent")
                         .HasForeignKey("SenderId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Room");
@@ -314,7 +319,7 @@ namespace ChatAppAPI.Data.Migrations
                     b.HasOne("ChatAppAPI.Data.Entities.ManageUser", "Admin")
                         .WithMany("Rooms")
                         .HasForeignKey("AdminId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Admin");

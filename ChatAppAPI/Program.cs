@@ -25,7 +25,9 @@ builder.Services.AddIdentity<ManageUser,IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 builder.Services.AddScoped<IAccountREPO, AccountREPO>();
 builder.Services.AddScoped<IMessageREPO, MessageREPO>();
+builder.Services.AddScoped<IEmailREPO, EmailREPO>();
 builder.Services.AddScoped<IRoomREPO, RoomREPO>();
+
 // Auto mapper
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 

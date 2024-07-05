@@ -1,8 +1,12 @@
 {
   "Files": [
     {
-      "Id": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\wwwroot\\Images\\20240627122612653_channels4_profile.jpg",
-      "PackagePath": "staticwebassets\\Images\\20240627122612653_channels4_profile.jpg"
+      "Id": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\wwwroot\\Images\\20240705144919559_channels4_profile.jpg",
+      "PackagePath": "staticwebassets\\Images\\20240705144919559_channels4_profile.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\wwwroot\\Images\\20240705150757319_bgmain.jpg",
+      "PackagePath": "staticwebassets\\Images\\20240705150757319_bgmain.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ChatAppAPI.Microsoft.AspNetCore.StaticWebAssets.props",

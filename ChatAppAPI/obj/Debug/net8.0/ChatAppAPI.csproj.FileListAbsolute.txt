@@ -6,9 +6,12 @@ D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\ChatAppAPI.deps.json
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\ChatAppAPI.runtimeconfig.json
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\ChatAppAPI.dll
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\ChatAppAPI.pdb
+D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\AutoMapper.dll
+D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\Azure.Core.dll
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\Azure.Identity.dll
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\Humanizer.dll
+D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
@@ -39,6 +42,7 @@ D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -52,6 +56,7 @@ D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\System.Configuration.Co
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\System.Drawing.Common.dll
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\System.Memory.Data.dll
+D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\System.Runtime.Caching.dll
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\System.Security.Permissions.dll
@@ -142,8 +147,3 @@ D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\obj\Debug\net8.0\refint\ChatAppAPI.dll
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\obj\Debug\net8.0\ChatAppAPI.pdb
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\obj\Debug\net8.0\ChatAppAPI.genruntimeconfig.cache
 D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\obj\Debug\net8.0\ref\ChatAppAPI.dll
-D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\AutoMapper.dll
-D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\Newtonsoft.Json.dll
-D:\HocTap\ChatApp\ChatAppAPI\ChatAppAPI\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll

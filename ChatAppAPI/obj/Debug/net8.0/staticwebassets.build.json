@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XnK72KUHtCwfEHueIB1ul1MDs4UvLmQgE2UMjRnFtoE=",
+  "Hash": "LwDeMh08/12S/GqEWp/MEAbmBKN21QuuTr6NFoogBDU=",
   "Source": "ChatAppAPI",
   "BasePath": "_content/ChatAppAPI",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\wwwroot\\Images\\20240627122612653_channels4_profile.jpg",
+      "Identity": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\wwwroot\\Images\\20240705144919559_channels4_profile.jpg",
       "SourceId": "ChatAppAPI",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\wwwroot\\",
       "BasePath": "_content/ChatAppAPI",
-      "RelativePath": "Images/20240627122612653_channels4_profile.jpg",
+      "RelativePath": "Images/20240705144919559_channels4_profile.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -33,7 +33,26 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\20240627122612653_channels4_profile.jpg"
+      "OriginalItemSpec": "wwwroot\\Images\\20240705144919559_channels4_profile.jpg"
+    },
+    {
+      "Identity": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\wwwroot\\Images\\20240705150757319_bgmain.jpg",
+      "SourceId": "ChatAppAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\HocTap\\ChatApp\\ChatAppAPI\\ChatAppAPI\\wwwroot\\",
+      "BasePath": "_content/ChatAppAPI",
+      "RelativePath": "Images/20240705150757319_bgmain.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\20240705150757319_bgmain.jpg"
     }
   ]
 }

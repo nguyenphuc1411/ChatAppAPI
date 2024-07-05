@@ -11,6 +11,7 @@ namespace ChatAppAPI.Data.Entities
         public string? Avatar { get; set; }
 
         public DateTime CreatedDate { get; set; }
+        public string? TokenForgetPassword {  get; set; }
 
         public ICollection<Message> MessagesSent { get; set; }
         public ICollection<Room> Rooms { get; set; }

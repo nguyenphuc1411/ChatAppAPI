@@ -9,5 +9,7 @@ namespace ChatAppAPI.Services.Interfaces
         Task<bool> Register(RegisterVM register);
         Task<bool> Logout();
         Task<ManageUser> GetCurrenUser();
+        Task<bool> ConfirmChangePassword(ChangePassword newPass);
+        Task<bool> UpdateProfile(string fullName,IFormFile? file);
     }
 }
