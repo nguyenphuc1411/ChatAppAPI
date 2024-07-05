@@ -51,7 +51,12 @@ namespace ChatAppAPI.Services.Repositories
 
         public async Task<List<RoomVM>> GetAll()
         {
-            var listRoom =await _context.Rooms.Include(x=>x.Admin).ToListAsync();
+            var listRoom =await _context.Rooms
+                .Include(x=>x.Admin)
+                .Include(x=>x.Messages)
+                .OrderByDescending(x => x.Messages.Max(m=>m.TimeStamp))
+                .Take(8)
+                .ToListAsync();
             var listRoomVM = _mapper.Map<List<RoomVM>>(listRoom);
             return listRoomVM;
         }

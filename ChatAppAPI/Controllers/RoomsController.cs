@@ -44,6 +44,7 @@ namespace ChatAppAPI.Controllers
             {
                 var user = await _account.GetCurrenUser();
                 roomVM.AdminName =user.FullName;
+                roomVM.Avatar = user.Avatar;
                 await _hubContext.Clients.All.SendAsync("NewGroup",roomVM);
                 return Ok(roomVM);
             }

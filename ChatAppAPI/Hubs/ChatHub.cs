@@ -73,7 +73,6 @@ namespace ChatAppAPI.Hubs
                 var user = _connection.FirstOrDefault(x => x.Email == GetEmail);
                 if (user != null)
                 {
-                 
                     if (user.CurrentGroup == null)
                     {
                         if (!_groupsMap.ContainsKey(groupName))
